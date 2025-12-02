@@ -73,3 +73,18 @@ def extract_raw_pixel_features(image):
                 raw_list.append(1)
             else:
                 raw_list.append(0)
+    return raw_list
+
+def extract_count_features(image):
+    spaces = 0
+    symbols = 0
+
+    for row in image:
+        for char in row:
+            if char == ' ':
+                spaces += 1
+            elif char == '#' or char =='+':
+                symbols += 1
+            else:
+                pass
+    return [spaces, symbols]
