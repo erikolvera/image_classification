@@ -1,14 +1,16 @@
-# train -> validate -> test
+"""step 1: data processing
 
-# digits
-#5000 lines of digits training labels
-#140000 lines of digits training images
-# total height = 140000/5000 = 28 lines per image
+train -> validate -> test
 
-# faces
-#451 lines face data training labels
-# 31570 lines of face data train
-# so total height = 31570 / 451 = 70 lines per face
+DIGITS:
+5000 lines of digits training labels
+140000 lines of digits training images
+total height = 140000/5000 = 28 lines per image
+
+FACES:
+451 lines face data training labels
+31570 lines of face data train
+so total height = 31570 / 451 = 70 lines per face """
 
 
 #wanna read the labels first. theyre basic integers
@@ -62,3 +64,12 @@ face_test_images, _ = read_images("cs4346-data/facedata/facedatatest", total_ima
 #
 # print(image_height)
 # print(len(face_train_images),len(face_train_labels))
+
+def extract_raw_pixel_features(image):
+    raw_list = []
+    for row in image:
+        for char in row:
+            if char == '#' or char == '+':
+                raw_list.append(1)
+            else:
+                raw_list.append(0)
