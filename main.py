@@ -117,48 +117,6 @@ face_train_features = [
     for i in range(len(face_train_images))
 ]
 
-# Debugging quick checks
-if __name__ == "__main__":
-
-    # Basic size checks
-    print("DIGITS:")
-    print("  train images:", len(digit_train_images))
-    print("  train labels:", len(digit_train_labels))
-    print("  valid images:", len(digit_valid_images))
-    print("  valid labels:", len(digit_validate_labels))
-    print("  test  images:", len(digit_test_images))
-    print("  test  labels:", len(digit_test_labels))
-    print("  lines per digit image:", digit_lines_per_image)
-
-    print("\nFACES:")
-    print("  train images:", len(face_train_images))
-    print("  train labels:", len(face_train_labels))
-    print("  valid images:", len(face_valid_images))
-    print("  valid labels:", len(face_validate_labels))
-    print("  test  images:", len(face_test_images))
-    print("  test  labels:", len(face_test_labels))
-    print("  lines per face image:", image_lines_per_image)
-
-    # Feature vector length checks
-    print("\nFEATURE SHAPES:")
-    print("  digit_train_features: ",
-          len(digit_train_features), "x", len(digit_train_features[0]))
-    print("  face_train_features:  ",
-          len(face_train_features), "x", len(face_train_features[0]))
-
-    # Quick peek at one image & features
-    print("\nExample digit label:", digit_train_labels[0])
-    print("Example digit image:")
-    for row in digit_train_images[0]:
-        print(row)
-
-    print("\nRaw pixel feature vector (first 50 entries):")
-    print(digit_raw_features[0][:50])
-
-    print("\nCount features [whitespace, symbols]:")
-    print(digit_count_features[0])
-
-
 
 # Begin Classfication Algorithms
 
