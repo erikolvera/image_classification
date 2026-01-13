@@ -120,7 +120,4 @@ face_train_features = [
 
 # Begin Classfication Algorithms
 
-# Naive Bayes Classifier
 
-
-# Perceptron Classifier
