@@ -15,7 +15,8 @@ so total lines_per_image = 31570 / 451 = 70 lines per face """
 import math
 import time
 import random
-import statistics # Not used yet but might be useful later
+
+from naive_bayes import *
 
 #wanna read the labels first. theyre basic integers
 def read_labels(labels_file):
@@ -119,5 +120,15 @@ face_train_features = [
 
 
 # Begin Classfication Algorithms
+        # Create and train a digit classifier
+digit_classifier = NaiveBayes(num_classes=10)
+digit_classifier.train(digit_train_features, digit_train_labels)
+
+# Test on one image
+test_features = extract_features(digit_test_images[0])
+prediction = digit_classifier.predict(test_features)
+actual = digit_test_labels[0]
+
+print(f"Predicted: {prediction}, Actual: {actual}")
 
 
