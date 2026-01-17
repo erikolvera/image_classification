@@ -101,9 +101,10 @@ class DataLoader:
     def extract_features(image):
         return DataLoader.extract_raw_pixel_features(image) + DataLoader.extract_count_features(image)
 
-# Maintain backward compatibility for single functions if desired, 
-# but for this refactor we prefer using the class in main.py.
-# However, main.py uses extract_features standalone.
+"""Maintain backward compatibility for single functions if desired, 
+but for this refactor we prefer using the class in main.py.
+However, main.py uses extract_features standalone."""
+
 def extract_features(image):
     return DataLoader.extract_features(image)
 
