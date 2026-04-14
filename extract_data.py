@@ -52,7 +52,6 @@ class DataLoader:
         return images, lines_per_image
 
     def load_digits(self, base_path="cs4346-data/digitdata"):
-        print("Loading digits...")
         self.digit_train_labels = self.read_labels(os.path.join(base_path, "traininglabels"))
         self.digit_validate_labels = self.read_labels(os.path.join(base_path, "validationlabels"))
         self.digit_test_labels = self.read_labels(os.path.join(base_path, "testlabels"))
@@ -61,11 +60,9 @@ class DataLoader:
         self.digit_valid_images, _ = self.read_images(os.path.join(base_path, "validationimages"), len(self.digit_validate_labels))
         self.digit_test_images, _ = self.read_images(os.path.join(base_path, "testimages"), len(self.digit_test_labels))
 
-        print("Extracting digit features...")
         self.digit_train_features = [self.extract_features(img) for img in self.digit_train_images]
 
     def load_faces(self, base_path="cs4346-data/facedata"):
-        print("Loading faces...")
         self.face_train_labels = self.read_labels(os.path.join(base_path, "facedatatrainlabels"))
         self.face_validate_labels = self.read_labels(os.path.join(base_path, "facedatavalidationlabels"))
         self.face_test_labels = self.read_labels(os.path.join(base_path, "facedatatestlabels"))
@@ -74,7 +71,6 @@ class DataLoader:
         self.face_valid_images, _ = self.read_images(os.path.join(base_path, "facedatavalidation"), len(self.face_validate_labels))
         self.face_test_images, _ = self.read_images(os.path.join(base_path, "facedatatest"), len(self.face_test_labels))
         
-        print("Extracting face features...")
         self.face_train_features = [self.extract_features(img) for img in self.face_train_images]
 
     @staticmethod

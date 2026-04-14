@@ -45,17 +45,61 @@ The Naive Bayes classifier achieves the following accuracy on the validation set
 
 ## Usage
 
+### Getting Started
+
+First, clone the repository and navigate into the root directory. This is important since the data files are loaded using relative paths.
+
+```bash
+git clone https://github.com/erikolvera/image_classification.git
+cd image_classification
+```
+
 ### Prerequisites
 
 - Python 3.x
-- No external dependencies required (uses standard library: `math`, `time`, `random`)
+- No external dependencies required (uses only standard library: `math`, `time`, `random`)
 
 ### Running the Evaluation
 
-To train the model and see accuracy results on both datasets, run:
+To train the models and see accuracy results on both datasets, run:
 
 ```bash
 python3 test_naive_bayes.py
+```
+
+**Expected Output:**
+```text
+============================================================
+NAIVE BAYES CLASSIFIER EVALUATION
+============================================================
+
+[1/2] Loading dataset 'Digits'...
+      • Training samples: 5,000
+      • Validation samples: 1,000
+      • Feature extraction: Complete (786 features/image)
+
+[2/2] Loading dataset 'Faces'...
+      • Training samples: 451
+      • Validation samples: 301
+      • Feature extraction: Complete (4202 features/image)
+
+------------------------------------------------------------
+>> TRAINING & EVALUATING MODELS
+------------------------------------------------------------
+
+[MODEL 1] Digits Classification (10 classes: 0-9)
+      • Training time:  0.89 seconds
+      • Validation:     821 / 1000 correctly classified
+      ► Accuracy:       82.10%
+
+[MODEL 2] Faces Classification (2 classes: Face / Non-Face)
+      • Training time:  0.48 seconds
+      • Validation:     264 / 301 correctly classified
+      ► Accuracy:       87.71%
+
+============================================================
+EVALUATION COMPLETE
+============================================================
 ```
 
 ### Running the Main Script
@@ -63,7 +107,7 @@ python3 test_naive_bayes.py
 To run the general data loading and a single-image prediction test:
 
 ```bash
-python3 main.py
+python3 demo.py
 ```
 
 ## Project Structure
@@ -73,7 +117,7 @@ image_classification/
 ├── cs4346-data/        # Dataset directory
 ├── extract_data.py     # Feature extraction and data loading logic
 ├── naive_bayes.py      # Naive Bayes classifier implementation
-├── main.py             # Main entry point for basic testing
+├── demo.py             # Main entry point for basic testing
 ├── test_naive_bayes.py # Full evaluation script
 └── README.md           # Project documentation
 ```
